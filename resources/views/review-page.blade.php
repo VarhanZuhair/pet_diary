@@ -82,54 +82,25 @@
     <section>
         <div class="container">
             <div class="row pt-lg-4 mt-4 g-5">
+                
+                @foreach($product as $produk)
                 <div class="col-3">
                     <a href="" style="text-decoration: none" class="text-dark">
                     <div class="card-group">
                             <div class="card">
-                                <img src="..." class="card-img-top" alt="Gambar Produk">
+                                <img src="/image/products/{{ $produk->productImage}}" class="card-img-top" alt="Gambar Produk" width="10px">
                                 <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                                    <div class="d-flex justify-content-center">Rating</div>
-                                    <div class="d-flex justify-content-center">Nama Produk</div>
-                                    <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                                    <div class="d-flex justify-content-center">Harga Produk</div>
+                                    <h5 class="card-title d-flex justify-content-center">{{ $produk->brand_name }}</h5>
+                                    <!-- <div class="d-flex justify-content-center">Rating</div> -->
+                                    <div class="d-flex justify-content-center">{{ $produk->product_name }}</div>
+                                    <div class="d-flex justify-content-center text-center">{{ $produk->product_description }}</div>
+                                    <div class="d-flex justify-content-center">Rp. {{ $produk->product_price }}</div>
                                 </div>
                             </div>
                         </div>
                     </a>
                 </div>
-                <div class="col-3">
-                    <a href="" style="text-decoration: none" class="text-dark">
-                    <div class="card-group">
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="Gambar Produk">
-                                <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                                    <div class="d-flex justify-content-center">Rating</div>
-                                    <div class="d-flex justify-content-center">Nama Produk</div>
-                                    <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                                    <div class="d-flex justify-content-center">Harga Produk</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-3">
-                    <a href="" style="text-decoration: none" class="text-dark">
-                    <div class="card-group">
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="Gambar Produk">
-                                <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                                    <div class="d-flex justify-content-center">Rating</div>
-                                    <div class="d-flex justify-content-center">Nama Produk</div>
-                                    <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                                    <div class="d-flex justify-content-center">Harga Produk</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                @endforeach
                 <div class="col-3">
                     <a href="" style="text-decoration: none" class="text-dark">
                     <div class="card-group">

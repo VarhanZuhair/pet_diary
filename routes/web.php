@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
@@ -23,8 +24,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/review', [ReviewController::class, 'view'])->middleware(['auth', 'verified'])->name('review');
-Route::get('/reviewAdd', [ReviewController::class, 'create'])->middleware(['auth', 'verified'])->name('review');
+Route::get('/review', [ProductController::class, 'view'])->middleware(['auth', 'verified'])->name('review');
+Route::get('/reviewAdd', [ReviewController::class, 'create'])->middleware(['auth', 'verified'])->name('reviewAdd');
+Route::post('/productPost', [ProductController::class, 'store'])->middleware(['auth', 'verified'])->name('productPost');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

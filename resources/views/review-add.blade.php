@@ -38,7 +38,8 @@
 
     <!-- FORM -->
     <div class="container my-5">
-        <form action="" method="post">
+        <form action="{{ url('productPost') }}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label for="productImage" class="form-label">Default file input example</label>
                 <input class="form-control" type="file" id="productImage" name="productImage">
@@ -46,18 +47,18 @@
             <!-- Product Category -->
             <div class="mb-3">
                 <label for="productCategory" class="my-3">Product Category</label>
-                <select class="form-select" aria-label="Default select example">
+                <select class="form-select" aria-label="Default select example" name="productCategory" id="productCategory">
                     <option selected>Select Product Category</option>
-                    <option value="pet-foods">Pet Foods</option>
-                    <option value="pet-medicine">Pet Medicine</option>
-                    <option value="pet-grooming">Pet Grooming</option>
-                    <option value="pet-tools">Pet Tools</option>
+                    <option value="pet foods">Pet Foods</option>
+                    <option value="pet medicine">Pet Medicine</option>
+                    <option value="pet grooming">Pet Grooming</option>
+                    <option value="pet tools">Pet Tools</option>
                 </select>
             </div>
             <!-- Sub Category -->
             <div class="mb-3">
-                <label for="productCategory" class="my-3">Sub Category</label>
-                <select class="form-select" aria-label="Default select example">
+                <label for="subCategory" class="my-3">Sub Category</label>
+                <select class="form-select" aria-label="Default select example" name="subCategory" id="subCategory">
                     <option selected>Select Pet Type</option>
                     <option value="cat">Cat</option>
                     <option value="dog">Dog</option>
@@ -69,20 +70,26 @@
 
             <!-- Brand Name -->
             <div class="my-3">
-                <label for="inputPassword5" class="form-label my-3">Brand Name <span class="text-danger">*</span></label>
-                <input type="text" id="brand-name" name="brand-name" class="form-control" required placeholder="Enter Brand Name" >
+                <label class="form-label my-3">Brand Name <span class="text-danger">*</span></label>
+                <input type="text" id="brand_name" name="brand_name" class="form-control" required placeholder="Enter Brand Name" >
             </div>
 
             <!-- Product Name -->
             <div class="my-3">
-                <label for="inputPassword5" class="form-label my-3">Product Name <span class="text-danger">*</span></label>
-                <input type="text" id="product-name" name="product-name" class="form-control" required placeholder="Enter product name (do not include brand name)">
+                <label class="form-label my-3">Product Name <span class="text-danger">*</span></label>
+                <input type="text" id="product_name" name="product_name" class="form-control" required placeholder="Enter product name (do not include brand name)">
+            </div>
+
+            <!-- Product Name -->
+            <div class="my-3">
+                <label class="form-label my-3">Product Description <span class="text-danger">*</span></label>
+                <textarea type="text" id="product_description" name="product_description" class="form-control" required placeholder="Enter product Description"></textarea>
             </div>
             
             <!-- Product Name -->
             <div class="my-3">
-                <label for="inputPassword5" class="form-label my-3">Product Price <span class="text-danger">*</span></label>
-                <input type="number" id="product-price" name="product-price" class="form-control" required placeholder="IDR (Ex : 50000">
+                <label class="form-label my-3">Product Price <span class="text-danger">*</span></label>
+                <input type="number" id="product_price" name="product_price" class="form-control" required placeholder="IDR (Ex : 50000">
             </div>
 
             <!-- Button -->

@@ -153,7 +153,7 @@
                     untuk di review sesama Pet Lovers lain</p>
             </div>
         </div>
-        <a href="" style="text-decoration: none" class="text-dark">
+        <a href="{{ url('review') }}" style="text-decoration: none" class="text-dark">
             <div class="row">
                 <div class="col-10"></div>
                 <div class="col-2">
