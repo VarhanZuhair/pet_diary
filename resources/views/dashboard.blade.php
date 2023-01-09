@@ -56,6 +56,11 @@
                         <button class="btn btn-outline-success" type="submit">
                             <a href="{{ url('login') }}" style="text-decoration: none" class="text-dark">Welcome! {{ Auth::user()->first_name }}</a>
                         </button>
+                        <!-- <button class="btn btn-outline-success" type="submit">
+                            <a href="{{ url('logout') }}" style="text-decoration: none" class="text-dark">Logout {{ Auth::user()->first_name }}</a>
+                        </button> -->
+                        <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
+                        
                     </div>
                 </div>
                 
