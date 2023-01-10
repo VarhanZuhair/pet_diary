@@ -28,7 +28,7 @@
                 <a class="nav-link" href="{{ url('review') }}">Review</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Forum</a>
+                <a class="nav-link" href="{{ url('forum') }}">Forum</a>
             </li>
         </ul>
         </div>
@@ -50,17 +50,20 @@
             </div>
             <div class="col-3">
                 <div class="row">
-                    <div class="col-6"></div>
-                    <div class="col-6">
-                        
-                        <button class="btn btn-outline-success" type="submit">
-                            <a href="{{ url('login') }}" style="text-decoration: none" class="text-dark">Welcome! {{ Auth::user()->first_name }}</a>
-                        </button>
-                        <!-- <button class="btn btn-outline-success" type="submit">
-                            <a href="{{ url('logout') }}" style="text-decoration: none" class="text-dark">Logout {{ Auth::user()->first_name }}</a>
-                        </button> -->
-                        <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
-                        
+                    <div class="col-8">
+                        <div class="row">
+                            <button class="btn btn-outline-success" type="submit">
+                                <a href="" style="text-decoration: none" class="text-dark">Welcome! {{ Auth::user()->first_name }}</a>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-4 ps-4">
+                        <div class="row">
+                            <!-- <button class="btn btn-outline-success" type="submit">
+                                <a href="{{ url('logout') }}" style="text-decoration: none" class="text-dark">Logout {{ Auth::user()->first_name }}</a>
+                            </button> -->
+                            <a class="btn btn-danger" href="{{ route('logout') }}">Logout</a>
+                        </div>
                     </div>
                 </div>
                 

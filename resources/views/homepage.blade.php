@@ -49,7 +49,7 @@
                     <div class="col-6"></div>
                     <div class="col-6">
                         <button class="btn btn-outline-success" type="submit">
-                            <a href="{{ url('register') }}" style="text-decoration: none" class="text-dark">Registrasi</a>
+                            <a href="{{ url('register') }}" style="text-decoration: none" class="text-dark">Registrasi/Login</a>
                         </button>
                     </div>
                 </div>
