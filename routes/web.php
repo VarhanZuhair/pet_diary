@@ -5,6 +5,8 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\UserController;
+use App\Models\Product;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,12 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('homepage');
-});
+Route::get('/', function (Product $product) {
+    $product = DB::table('product')->limit(3)->get();
+    return view('homepage', compact('product'));
+})->name('homepage');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
+Route::get('/dashboard', function (Product $product) {
+    $product = DB::table('product')->limit(3)->get();
+    return view('dashboard', compact('product'));
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/review', [ProductController::class, 'view'])->middleware(['auth', 'verified'])->name('review');
@@ -32,6 +36,35 @@ Route::post('/productPost', [ProductController::class, 'store'])->middleware(['a
 
 
 Route::get('/forum', [ForumController::class, 'index'])->middleware(['auth', 'verified'])->name('forum');
+Route::get('/forum/cat', [ForumController::class, 'cat'])->middleware(['auth', 'verified'])->name('cat');
+Route::get('/forum/dog', [ForumController::class, 'dog'])->middleware(['auth', 'verified'])->name('dog');
+Route::get('/forum/fish', [ForumController::class, 'fish'])->middleware(['auth', 'verified'])->name('fish');
+Route::get('/forum/hamster', [ForumController::class, 'hamster'])->middleware(['auth', 'verified'])->name('hamster');
+Route::get('/forum/bird', [ForumController::class, 'bird'])->middleware(['auth', 'verified'])->name('bird');
+Route::get('/forum/rabbit', [ForumController::class, 'rabbit'])->middleware(['auth', 'verified'])->name('rabbit');
+
+// EDIT FORUM
+Route::get('/forum/{forum}', [ForumController::class, 'edit'])->middleware(['auth', 'verified'])->name('forumUpdate');
+Route::post('/forumUpdate', [ForumController::class, 'update'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/cat/post', [ForumController::class, 'catPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/cat/store', [ForumController::class, 'catStore'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/dog/post', [ForumController::class, 'dogPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/dog/store', [ForumController::class, 'dogStore'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/rabbit/post', [ForumController::class, 'rabbitPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/rabbit/store', [ForumController::class, 'rabbitStore'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/fish/post', [ForumController::class, 'fishPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/fish/store', [ForumController::class, 'fishStore'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/bird/post', [ForumController::class, 'birdPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/bird/store', [ForumController::class, 'birdStore'])->middleware(['auth', 'verified']);
+
+Route::get('/forum/hamster/post', [ForumController::class, 'hamsterPost'])->middleware(['auth', 'verified']);
+Route::post('/forum/hamster/store', [ForumController::class, 'hamsterStore'])->middleware(['auth', 'verified']);
+
 
 
 

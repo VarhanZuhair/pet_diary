@@ -13,20 +13,22 @@
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg warna-hijau fixed-top">
     <div class="container">
-        <a class="navbar-brand" href="#">PetDiary</a>
+        <a class="navbar-brand" href="#">
+            <img src="/image/logo-p.png" style="width:100px; height:50px" alt="">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav ms-auto">
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link active" aria-current="page" href="{{ url('dashboard') }}">Home</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Review</a>
+                <a class="nav-link" href="{{ url('review') }}">Review</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Forum</a>
+                <a class="nav-link" href="{{ url('forum') }}">Forum</a>
             </li>
         </ul>
         </div>
@@ -37,7 +39,9 @@
     <!-- KOLOM SEARCH -->
     <div class="container pt-5">
         <div class="row my-5">
-            <div class="col-3">PetDiary</div>
+            <div class="col-3">
+                <img src="/image/logo-p.png" style="width:100px; height:50px" alt="">
+            </div>
             <div class="col-6">
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -65,7 +69,7 @@
         <div class="row my-4 py-4">
             <div class="col-2"></div>
             <div class="col-8">
-                <P>DISINI ADA GAMBAR</P>
+                <img src="/image/poster.svg" alt="">
             </div>
             <div class="col-2"></div>
         </div>
@@ -78,51 +82,56 @@
         </div>
         
         <div class="row my-4 py-4">
+            @foreach ($product as $produk)
             <div class="col-4">
-
-                <div class="card-group">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="Gambar Produk">
-                        <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                            <div class="d-flex justify-content-center">Rating</div>
-                            <div class="d-flex justify-content-center">Nama Produk</div>
-                            <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                            <div class="d-flex justify-content-center">Harga Produk</div>
+                <a href="" style="text-decoration: none" class="text-dark">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="/image/products/{{ $produk->productImage}}" class="card-img-top" alt="Gambar Produk">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-center">{{ $produk->brand_name }}</h5>
+                                <!-- <div class="d-flex justify-content-center">Rating</div> -->
+                                <div class="d-flex justify-content-center">{{ $produk->product_name }}</div>
+                                <div class="d-flex justify-content-center">{{ $produk->product_description }}</div>
+                                <div class="d-flex justify-content-center">Rp. {{ $produk->product_price }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
             </div>
-            <div class="col-4">
-
-                <div class="card-group">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="Gambar Produk">
-                        <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                            <div class="d-flex justify-content-center">Rating</div>
-                            <div class="d-flex justify-content-center">Nama Produk</div>
-                            <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                            <div class="d-flex justify-content-center">Harga Produk</div>
+            @endforeach
+            <!-- <div class="col-4">
+                <a href="" style="text-decoration: none" class="text-dark">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="..." class="card-img-top" alt="Gambar Produk">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
+                                <div class="d-flex justify-content-center">Rating</div>
+                                <div class="d-flex justify-content-center">Nama Produk</div>
+                                <div class="d-flex justify-content-center">Deskripsi Produk</div>
+                                <div class="d-flex justify-content-center">Harga Produk</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="col-4">
-
-                <div class="card-group">
-                    <div class="card">
-                        <img src="..." class="card-img-top" alt="Gambar Produk">
-                        <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                            <div class="d-flex justify-content-center">Rating</div>
-                            <div class="d-flex justify-content-center">Nama Produk</div>
-                            <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                            <div class="d-flex justify-content-center">Harga Produk</div>
+                </a>
+            </div> -->
+            <!-- <div class="col-4">
+                <a href="" style="text-decoration: none" class="text-dark">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="..." class="card-img-top" alt="Gambar Produk">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
+                                <div class="d-flex justify-content-center">Rating</div>
+                                <div class="d-flex justify-content-center">Nama Produk</div>
+                                <div class="d-flex justify-content-center">Deskripsi Produk</div>
+                                <div class="d-flex justify-content-center">Harga Produk</div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </a>
+            </div> -->
             
             </div>
         </div>
@@ -132,7 +141,7 @@
 
     <!-- Review -->
     <div class="container my-5 bg-secondary bg-opacity-10 py-5">
-        <a href="" style="text-decoration: none" class="text-dark">
+        <a href="{{ url('review') }}" style="text-decoration: none" class="text-dark">
         <div class="row ">
             <div class="col-5">
                 <h1>Review</h1>
@@ -143,7 +152,7 @@
                     untuk di review sesama Pet Lovers lain</p>
             </div>
         </div>
-        <a href="" style="text-decoration: none" class="text-dark">
+        <a href="{{ url('review') }}" style="text-decoration: none" class="text-dark">
             <div class="row">
                 <div class="col-10"></div>
                 <div class="col-2">
@@ -157,7 +166,7 @@
 
     <!-- Forum -->
     <div class="container my-5 bg-secondary bg-opacity-10 py-5">
-        <a href="" style="text-decoration: none" class="text-dark">
+        <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
             <div class="row" >
                 <div class="col-5">
                     <h1>Forum</h1>
@@ -168,7 +177,7 @@
                     permasalahan hewan peliharaan kamu dari sesama Pet Lovers</p>
                 </div>
             </div>
-            <a href="" style="text-decoration: none" class="text-dark">
+            <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
                 <div class="row">
                     <div class="col-10"></div>
                     <div class="col-2">

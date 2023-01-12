@@ -53,7 +53,7 @@
                     <div class="col-8">
                         <div class="row">
                             <button class="btn btn-outline-success" type="submit">
-                                <a href="" style="text-decoration: none" class="text-dark">Welcome! {{ Auth::user()->first_name }}</a>
+                                <a href="" style="text-decoration: none" class="text-dark">Welcome! {{ Auth::user()->name }}</a>
                             </button>
                         </div>
                     </div>
@@ -92,8 +92,25 @@
         </div>
         
         <div class="row my-4 py-4">
-            
+            @foreach ($product as $produk)
             <div class="col-4">
+                <a href="" style="text-decoration: none" class="text-dark">
+                    <div class="card-group">
+                        <div class="card">
+                            <img src="/image/products/{{ $produk->productImage}}" class="card-img-top" alt="Gambar Produk">
+                            <div class="card-body">
+                                <h5 class="card-title d-flex justify-content-center">{{ $produk->brand_name }}</h5>
+                                <!-- <div class="d-flex justify-content-center">Rating</div> -->
+                                <div class="d-flex justify-content-center">{{ $produk->product_name }}</div>
+                                <div class="d-flex justify-content-center">{{ $produk->product_description }}</div>
+                                <div class="d-flex justify-content-center">Rp. {{ $produk->product_price }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            @endforeach
+            <!-- <div class="col-4">
                 <a href="" style="text-decoration: none" class="text-dark">
                     <div class="card-group">
                         <div class="card">
@@ -108,8 +125,8 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="col-4">
+            </div> -->
+            <!-- <div class="col-4">
                 <a href="" style="text-decoration: none" class="text-dark">
                     <div class="card-group">
                         <div class="card">
@@ -124,23 +141,7 @@
                         </div>
                     </div>
                 </a>
-            </div>
-            <div class="col-4">
-                <a href="" style="text-decoration: none" class="text-dark">
-                    <div class="card-group">
-                        <div class="card">
-                            <img src="..." class="card-img-top" alt="Gambar Produk">
-                            <div class="card-body">
-                                <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                                <div class="d-flex justify-content-center">Rating</div>
-                                <div class="d-flex justify-content-center">Nama Produk</div>
-                                <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                                <div class="d-flex justify-content-center">Harga Produk</div>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+            </div> -->
             
             </div>
         </div>
@@ -175,7 +176,7 @@
 
     <!-- Forum -->
     <div class="container my-5 bg-secondary bg-opacity-10 py-5">
-        <a href="" style="text-decoration: none" class="text-dark">
+        <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
             <div class="row" >
                 <div class="col-5">
                     <h1>Forum</h1>
@@ -186,7 +187,7 @@
                     permasalahan hewan peliharaan kamu dari sesama Pet Lovers</p>
                 </div>
             </div>
-            <a href="" style="text-decoration: none" class="text-dark">
+            <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
                 <div class="row">
                     <div class="col-10"></div>
                     <div class="col-2">

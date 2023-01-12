@@ -29,7 +29,7 @@
                 <a class="nav-link active" href="{{ url('review') }}">Review</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Forum</a>
+                <a class="nav-link" href="{{ url('forum') }}">Forum</a>
             </li>
         </ul>
         </div>
