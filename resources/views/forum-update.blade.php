@@ -83,10 +83,6 @@
             </div>
             <div class="row">
                 <div class="form-floating my-3">
-                    <input type="number" class="form-control" id="post_id" name="post_id" placeholder="" required readonly value="{{ $forum->post_id }}">
-                    <label for="floatingInput" class="ps-4 fs-5">POST ID</label>
-                </div>
-                <div class="form-floating my-3">
                     <input type="text" class="form-control" id="title" name="title" placeholder="" required value="{{ $forum->title }}">
                     <label for="floatingInput" class="ps-4 fs-5">Title</label>
                 </div>
@@ -95,14 +91,6 @@
                     <label for="floatingPassword" class="ps-4 fs-5">Description</label>
                 </div>
 
-                <div class="form-floating my-3">
-                    <input type="number" class="form-control" id="user_id" name="user_id" placeholder="" readonly value="{{ Auth::user()->id }}">
-                    <label for="floatingInput" class="ps-4 fs-5">User ID</label>
-                </div>
-                <div class="form-floating my-3">
-                    <input type="text" class="form-control" id="category" name="category" placeholder="" readonly value="{{ $forum->category}}">
-                    <label for="floatingInput" class="ps-4 fs-5">Category</label>
-                </div>
 
                 <!-- BUTTON -->
                 <div class="row d-flex justify-content-end">
@@ -121,6 +109,20 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-floating my-3">
+                    <input type="number" class="form-control invisible" id="post_id" name="post_id" placeholder="" required readonly value="{{ $forum->post_id }}">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">POST ID</label>
+                </div>
+
+                <div class="form-floating my-3">
+                    <input type="number" class="form-control invisible" id="user_id" name="user_id" placeholder="" readonly value="{{ Auth::user()->id }}">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">User ID</label>
+                </div>
+                <div class="form-floating my-3">
+                    <input type="text" class="form-control invisible" id="category" name="category" placeholder="" readonly value="{{ $forum->category}}">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">Category</label>
                 </div>
             </div>
         </form>

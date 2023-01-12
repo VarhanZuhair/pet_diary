@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ForumController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
@@ -46,6 +47,15 @@ Route::get('/forum/rabbit', [ForumController::class, 'rabbit'])->middleware(['au
 // EDIT FORUM
 Route::get('/forum/{forum}', [ForumController::class, 'edit'])->middleware(['auth', 'verified'])->name('forumUpdate');
 Route::post('/forumUpdate', [ForumController::class, 'update'])->middleware(['auth', 'verified']);
+
+// DELETE FORUM
+Route::get('/forum/delete/{forum}', [ForumController::class, 'delete'])->middleware(['auth', 'verified'])->name('forumDelete');
+Route::post('/forumDelete', [ForumController::class, 'hide'])->middleware(['auth', 'verified']);
+
+// Comment
+Route::get('/forum/comment/{forum}', [CommentController::class, 'comment'])->middleware(['auth', 'verified'])->name('forumComment');
+Route::get('/forum/comment/{forum}/add', [CommentController::class, 'commentAdd'])->middleware(['auth', 'verified'])->name('commentAdd');
+Route::post('/forum/comment/post', [CommentController::class, 'commentPost'])->middleware(['auth', 'verified'])->name('commentPost');
 
 Route::get('/forum/cat/post', [ForumController::class, 'catPost'])->middleware(['auth', 'verified']);
 Route::post('/forum/cat/store', [ForumController::class, 'catStore'])->middleware(['auth', 'verified']);

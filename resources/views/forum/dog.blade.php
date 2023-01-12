@@ -117,7 +117,7 @@
                                 @if( Auth::user()->name == $forumcat->username)
                                 <ul class="dropdown-menu">
                                     <li class="py-2 text-center"><a href="{{ route('forumUpdate', $forumcat->post_id)}}" style="text-decoration: none" class="text-dark">Edit Post</a></li>
-                                    <li class="py-2 text-center"><a href="" style="text-decoration: none" class="text-dark">Delete Post</a></li>
+                                    <li class="py-2 text-center"><a href="{{ route('forumDelete', $forumcat->post_id) }}" style="text-decoration: none" class="text-dark">Delete Post</a></li>
                                 </ul>
                                 @else
                                 @endif
@@ -132,7 +132,7 @@
                     
                     <div class="row">
                         <div class="col-2 d-flex justify-content-end ms-auto">
-                            <a href="" style="text-decoration: none" class="text-dark"><span class="material-symbols-outlined fs-2">mode_comment</span></a>
+                            <a href="{{ route('forumComment', $forumcat->post_id) }}" style="text-decoration: none" class="text-dark"><span class="material-symbols-outlined fs-2">mode_comment</span></a>
                             <a href="" style="text-decoration: none" class="text-dark ps-3"><span class="material-symbols-outlined fs-2">favorite</span></a>
                         </div>
                     </div>

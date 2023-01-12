@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Forum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,6 +31,18 @@ class ForumController extends Controller
         return redirect()->route($request->category);
     }
 
+    public function delete(Forum $forum){
+        return view('forum-delete',compact('forum'));  
+    }
+
+    public function hide(Request $request){
+        $affected = DB::table('forum')
+              ->where('post_id',  $request->post_id)
+              ->update(['status' => "hide"]);
+      
+        return redirect()->route($request->category);
+    }
+
 
     // CAT
     public function cat(){
@@ -37,6 +50,7 @@ class ForumController extends Controller
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
                 ->where('category', '=', 'cat')
+                ->where('status', '!=', 'hide')
                 ->orderBy('post_id', 'desc')
                 ->get();
         return view('forum.cat', ['forum' => $forum]);
@@ -50,6 +64,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('cat');
     }
@@ -61,6 +76,7 @@ class ForumController extends Controller
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
                 ->where('category', '=', 'dog')
+                ->where('status', '!=', 'hide')
                 ->orderBy('post_id', 'desc')
                 ->get();
         return view('forum.dog', ['forum' => $forum]);
@@ -74,6 +90,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('dog');
     }
@@ -85,6 +102,7 @@ class ForumController extends Controller
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
                 ->where('category', '=', 'rabbit')
+                ->where('status', '!=', 'hide')
                 ->orderBy('post_id', 'desc')
                 ->get();
         return view('forum.rabbit', ['forum' => $forum]);
@@ -98,6 +116,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('rabbit');
     }
@@ -106,6 +125,7 @@ class ForumController extends Controller
         $forum = DB::table('forum')
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
+                ->where('status', '!=', 'hide')
                 ->where('category', '=', 'fish')
                 ->orderBy('post_id', 'desc')
                 ->get();
@@ -120,6 +140,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('fish');
     }
@@ -129,6 +150,7 @@ class ForumController extends Controller
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
                 ->where('category', '=', 'bird')
+                ->where('status', '!=', 'hide')
                 ->orderBy('post_id', 'desc')
                 ->get();
         return view('forum.bird', ['forum' => $forum]);
@@ -142,6 +164,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('bird');
     }
@@ -151,6 +174,7 @@ class ForumController extends Controller
                 ->select('post_id', 'forum.title', 'forum.description', 'users.name as username')
                 ->join('users', 'users.id', '=', 'forum.user_id')
                 ->where('category', '=', 'hamster')
+                ->where('status', '!=', 'hide')
                 ->orderBy('post_id', 'desc')
                 ->get();
         return view('forum.hamster', ['forum' => $forum]);
@@ -164,6 +188,7 @@ class ForumController extends Controller
             'category' => $request->category,
             'title' => $request->title,
             'description' => $request->description,
+            'status' => $request->status,
         ]);
         return redirect()->route('hamster');
     }

@@ -75,50 +75,27 @@
         </div>
     </div>
 
+    <!-- POST NYA -->
     <div class="container">
-        <div class="row">
-            <div class="col-2">
-                <img src="/image/forum/fish.svg" alt="" srcset="" width="200px">
-            </div>
-            <div class="col-8 position-relative">
-                <h3><b class="position-absolute top-50 start-0 translate-middle-y">FISH FORUM</b></h3>
-            </div>
-            <div class="col-2 position-relative">
-                <div class="row">
-                    <a href="{{ url('/forum/fish/post') }}" class="btn warna-oren berubah-warna position-absolute bottom-0 start-50 translate-middle-x">Add New Post</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <hr>
-
-    <!-- FORUM -->
-    <div class="container">
-        <div class="row">
-            <h3><b>NEWEST POST</b></h3>
-        </div>
-
         <!-- POST -->
-        @foreach($forum as $forumcat)
+        
         <div class="row pt-4">
             <div class="card">
                 <div class="card-body">
                     <!-- user -->
                     <div class="row">
                         <div class="col-6">
-                            <h5>From : <a href="" style="text-decoration: none" class="text-dark"><span>@</span>{{ $forumcat->username }}</a></h5>
+                            <h5>From : <a href="" style="text-decoration: none" class="text-dark"><span>@</span>{{ $forum->username }}</a></h5>
                         </div>
                         <div class="col-6 d-flex justify-content-end">
                             <div class="btn-group">
                                 <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     <span class="material-symbols-outlined">menu</span>
                                 </button>
-                                @if( Auth::user()->name == $forumcat->username)
+                                @if( Auth::user()->name == $forum->name)
                                 <ul class="dropdown-menu">
                                     <li class="py-2 text-center"><a href="{{ route('forumUpdate', $forumcat->post_id)}}" style="text-decoration: none" class="text-dark">Edit Post</a></li>
-                                    <li class="py-2 text-center"><a href="{{ route('forumDelete', $forumcat->post_id) }}" style="text-decoration: none" class="text-dark">Delete Post</a></li>
-                                    <li></li>
+                                    <li class="py-2 text-center"><a href="" style="text-decoration: none" class="text-dark">Delete Post</a></li>
                                 </ul>
                                 @else
                                 @endif
@@ -127,57 +104,58 @@
                         </div>
                     <!-- Komentar forumnya -->
                     <div class="row">
-                        <h3 class="pt-3">{{ $forumcat->title }}</h3>
-                        <p class="pt-3 fs-5">{{ $forumcat->description }}</p>
+                        <h3 class="pt-3">{{ $forum->title }}</h3>
+                        <p class="pt-3 fs-5">{{ $forum->description }}</p>
                     </div>
                     
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-end ms-auto">
-                            <a href="{{ route('forumComment', $forumcat->post_id) }}" style="text-decoration: none" class="text-dark"><span class="material-symbols-outlined fs-2">mode_comment</span></a>
-                            <a href="" style="text-decoration: none" class="text-dark ps-3"><span class="material-symbols-outlined fs-2">favorite</span></a>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-        @endforeach
+        
+    </div>
 
-        <div class="row pt-4">
-            <div class="card">
-                <div class="card-body">
-                    <!-- user -->
-                    <div class="row">
-                        <div class="col-6">
-                            <h5>From : <a href="" style="text-decoration: none" class="text-dark">@user</a></h5>
-                        </div>
-                        <div class="col-6 d-flex justify-content-end">
+    <!-- COMMENTNYA -->
+    <div class="container">
+        <div class="row my-4">
+            <div class="col-6">
+                <h3>COMMENTS : </h3>
+            </div>
+
+            <div class="col-6 d-flex justify-content-end">
+                <a href="{{ route('commentAdd', $forum->post_id) }}" class="btn warna-oren berubah-warna">Add Comment</a>
+            </div>
+        </div>
+
+
+        <div class="row">
+            @foreach($comment as $komen)
+            <div class="col-11 ms-auto mt-3">
+                <!-- comments -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5>From : {{ $komen->username}}</h5>
+                            </div>
+                            <div class="col-6 d-flex justify-content-end">
                             <div class="btn-group">
-                                <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <span class="material-symbols-outlined">menu</span>
-                                </button>
-                                <ul class="dropdown-menu">
-                                    <li class="py-2 text-center"><a href="" style="text-decoration: none" class="text-dark">Edit Post</a></li>
-                                    <li class="py-2 text-center"><a href="" style="text-decoration: none" class="text-dark">Delete Post</a></li>
-                                </ul>
+                                    <button class="btn btn-sm" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <span class="material-symbols-outlined">menu</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    <!-- Komentar forumnya -->
-                    <div class="row">
-                        <h3 class="pt-3">Judul Forum</h3>
-                        <p class="pt-3 fs-5">Isi Forum</p>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-2 d-flex justify-content-end ms-auto">
-                            <a href="" style="text-decoration: none" class="text-dark"><span class="material-symbols-outlined fs-2">mode_comment</span></a>
-                            <a href="" style="text-decoration: none" class="text-dark ps-3"><span class="material-symbols-outlined fs-2">favorite</span></a>
+                        <!-- Komentar forumnya -->
+                        <div class="row">
+                            <p class="py-3 fs-5 mx-3">{{ $komen->comment }}</p>
                         </div>
+                    </div>
                     </div>
                 </div>
             </div>
-        </div>
+            @endforeach
     </div>
+
 
 
     

@@ -91,15 +91,6 @@
                     <label for="floatingPassword" class="ps-4 fs-5">Description</label>
                 </div>
 
-                <div class="form-floating my-3">
-                    <input type="number" class="form-control" id="user_id" name="user_id" placeholder="" readonly value="{{ Auth::user()->id }}">
-                    <label for="floatingInput" class="ps-4 fs-5">User ID</label>
-                </div>
-                <div class="form-floating my-3">
-                    <input type="text" class="form-control" id="category" name="category" placeholder="" readonly value="rabbit">
-                    <label for="floatingInput" class="ps-4 fs-5">Category</label>
-                </div>
-
                 <!-- BUTTON -->
                 <div class="row d-flex justify-content-end">
 
@@ -117,6 +108,19 @@
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class="form-floating my-3">
+                    <input type="text" class="form-control invisible" id="status" name="status" placeholder="" readonly value="active">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">Category</label>
+                </div>
+                <div class="form-floating my-3">
+                    <input type="number" class="form-control invisible" id="user_id" name="user_id" placeholder="" readonly value="{{ Auth::user()->id }}">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">User ID</label>
+                </div>
+                <div class="form-floating my-3">
+                    <input type="text" class="form-control invisible" id="category" name="category" placeholder="" readonly value="rabbit">
+                    <label for="floatingInput" class="ps-4 fs-5 invisible">Category</label>
                 </div>
             </div>
         </form>
