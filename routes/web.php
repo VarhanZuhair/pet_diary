@@ -35,6 +35,8 @@ Route::get('/review', [ProductController::class, 'view'])->middleware(['auth', '
 Route::get('/reviewAdd', [ReviewController::class, 'create'])->middleware(['auth', 'verified'])->name('reviewAdd');
 Route::post('/productPost', [ProductController::class, 'store'])->middleware(['auth', 'verified'])->name('productPost');
 
+Route::get('/review/{product}', [ProductController::class, 'show'])->middleware(['auth', 'verified'])->name('productShow');
+
 
 Route::get('/forum', [ForumController::class, 'index'])->middleware(['auth', 'verified'])->name('forum');
 Route::get('/forum/cat', [ForumController::class, 'cat'])->middleware(['auth', 'verified'])->name('cat');

@@ -65,61 +65,25 @@
     </div>
     <!-- END KOLOM SEARCH -->
 
-    <!-- ADD PRODUCT -->
-    <div class="container">
-        <div class="row">
-            <div class="col-2 ms-auto">
-                <a href="{{ url('reviewAdd') }}" style="text-decoration: none" class="text-dark">
-                    <div class="row">
-                        <button type="button" class="btn btn-success">Add Product</button>
+    <!-- PRODUCT NYA -->
+    <div class="row">
+        <div class="col-4">
+            <a href="" style="text-decoration: none" class="text-dark">
+            <div class="card-group">
+                    <div class="card">
+                        <img src="/image/products/{{ $product->productImage}}" class="card-img-top" alt="Gambar Produk" widht="5px">
+                        <div class="card-body">
+                            <h5 class="card-title d-flex justify-content-center">{{ $product->brand_name }}</h5>
+                            <!-- <div class="d-flex justify-content-center">Rating</div> -->
+                            <div class="d-flex justify-content-center">{{ $product->product_name }}</div>
+                            <div class="d-flex justify-content-center text-center">{{ $product->product_description }}</div>
+                            <div class="d-flex justify-content-center">Rp. {{ $product->product_price }}</div>
+                        </div>
                     </div>
-                </a>
-            </div>
+                </div>
+            </a>
         </div>
     </div>
-
-    <!-- MOST REVIEW PRODUCT -->
-    <section>
-        <div class="container">
-            <div class="row pt-lg-4 mt-4 g-5">
-                
-                @foreach($product as $produk)
-                <div class="col-3">
-                    <a href="{{ route('productShow', $produk->id) }}" style="text-decoration: none" class="text-dark">
-                    <div class="card-group">
-                            <div class="card">
-                                <img src="/image/products/{{ $produk->productImage}}" class="card-img-top" alt="Gambar Produk" widht="5px">
-                                <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">{{ $produk->brand_name }}</h5>
-                                    <!-- <div class="d-flex justify-content-center">Rating</div> -->
-                                    <div class="d-flex justify-content-center">{{ $produk->product_name }}</div>
-                                    <div class="d-flex justify-content-center text-center">{{ $produk->product_description }}</div>
-                                    <div class="d-flex justify-content-center">Rp. {{ $produk->product_price }}</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                @endforeach
-                <div class="col-3">
-                    <a href="" style="text-decoration: none" class="text-dark">
-                    <div class="card-group">
-                            <div class="card">
-                                <img src="..." class="card-img-top" alt="Gambar Produk">
-                                <div class="card-body">
-                                    <h5 class="card-title d-flex justify-content-center">Nama Produk</h5>
-                                    <div class="d-flex justify-content-center">Rating</div>
-                                    <div class="d-flex justify-content-center">Nama Produk</div>
-                                    <div class="d-flex justify-content-center">Deskripsi Produk</div>
-                                    <div class="d-flex justify-content-center">Harga Produk</div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>

@@ -33,4 +33,9 @@ class ProductController extends Controller
         }
         return redirect()->route('review');
     }
+
+    public function show(Product $product){
+        return view('product-show', compact('product'));
+    }
+
 }

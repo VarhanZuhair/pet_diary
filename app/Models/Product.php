@@ -19,4 +19,12 @@ class Product extends Model
     ];
     
     protected $table = ['product'];
+    
+    protected $casts = [
+        'settings' => 'array'
+     ];
+
+     protected $attributes = [
+        'settings' => '[]'
+     ];
 }

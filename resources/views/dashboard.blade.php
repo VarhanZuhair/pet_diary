@@ -149,6 +149,30 @@
     <!-- END MOST REVIEW -->
 
 
+        <!-- Forum -->
+        <div class="container my-5 bg-secondary bg-opacity-10 py-5">
+        <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
+            <div class="row" >
+                <div class="col-5">
+                    <h1>Forum</h1>
+                </div>
+                <div class="col-7">
+                    <p>Kamu bisa berdiskusi, mengajukan pertanyaan, dan berinteraksi
+                    dengan sesama Pet Lovers lainnya di Forum. Temukan jawaban atas
+                    permasalahan hewan peliharaan kamu dari sesama Pet Lovers</p>
+                </div>
+            </div>
+            <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
+                <div class="row">
+                    <div class="col-10"></div>
+                    <div class="col-2">
+                        Go to Forum Page >>
+                    </div>
+                </div>
+            </a>
+        </a>
+    </div>
+    
     <!-- Review -->
     <div class="container my-5 bg-secondary bg-opacity-10 py-5">
         <a href="{{ url('review') }}" style="text-decoration: none" class="text-dark">
@@ -173,30 +197,6 @@
         </a>
     </div>
 
-
-    <!-- Forum -->
-    <div class="container my-5 bg-secondary bg-opacity-10 py-5">
-        <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
-            <div class="row" >
-                <div class="col-5">
-                    <h1>Forum</h1>
-                </div>
-                <div class="col-7">
-                    <p>Kamu bisa berdiskusi, mengajukan pertanyaan, dan berinteraksi
-                    dengan sesama Pet Lovers lainnya di Forum. Temukan jawaban atas
-                    permasalahan hewan peliharaan kamu dari sesama Pet Lovers</p>
-                </div>
-            </div>
-            <a href="{{ url('forum') }}" style="text-decoration: none" class="text-dark">
-                <div class="row">
-                    <div class="col-10"></div>
-                    <div class="col-2">
-                        Go to Forum Page >>
-                    </div>
-                </div>
-            </a>
-        </a>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
